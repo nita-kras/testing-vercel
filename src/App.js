@@ -40,6 +40,7 @@ class App extends React.Component {
             <div className="App">
                 <button onClick={() => this.changeFigure(false)}>Previous</button>
                 <Figure imgUrl={this.state.figureUrls[this.state.currentFigureIndex]}/>
+                <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
                 <button onClick={() => this.changeFigure(true)}>Next</button>
             </div>
         );
