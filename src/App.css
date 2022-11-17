@@ -19,4 +19,9 @@
 
 .buttons {
   margin: 40px;
+  background-color: transparent;
+  color: #61dafb;
+  border-radius: 5px;
+  border-width: medium;
+  border-color: #61dafb;
 }
