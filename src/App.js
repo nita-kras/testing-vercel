@@ -38,12 +38,12 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <button onClick={() => this.changeFigure(false)}>Previous</button>
+                <button className="buttons" onClick={() => this.changeFigure(false)}>Previous</button>
                 <div className="Figure">
                     <Figure imgUrl={this.state.figureUrls[this.state.currentFigureIndex]}/>
                     <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
                 </div>
-                <button onClick={() => this.changeFigure(true)}>Next</button>
+                <button className="buttons" onClick={() => this.changeFigure(true)}>Next</button>
             </div>
         );
     }
