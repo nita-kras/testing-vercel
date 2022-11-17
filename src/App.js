@@ -1,17 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Figure from "./Figure";
+import Button from "./Button";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          ello ello
-        </p>
-      </header>
-    </div>
-  );
+
+    return (
+        <div className="App">
+            <Button />
+            <Figure />
+            <Button />
+        </div>
+    );
 }
 
 export default App;
