@@ -15,6 +15,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 500px;
+  max-width: 500px;
 }
 
 .buttons {
@@ -24,4 +26,9 @@
   border-radius: 5px;
   border-width: medium;
   border-color: #61dafb;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
