@@ -7,16 +7,20 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            figureUrls: [
-                "https://web.cse.ohio-state.edu/~chen.8028/VisPubImages/Images/1990/new/VisC.45.5.png",
-                "https://web.cse.ohio-state.edu/~chen.8028/VisPubImages/Images/1990/new/VisC.45.6.png",
-                "https://web.cse.ohio-state.edu/~chen.8028/VisPubImages/Images/1990/new/VisC.51.6.png",
-                "https://web.cse.ohio-state.edu/~chen.8028/VisPubImages/Images/1990/new/VisC.45.7.png",
-                "https://web.cse.ohio-state.edu/~chen.8028/VisPubImages/Images/1990/new/VisC.6.5.png"
-            ],
+            figures : [],
             currentFigureIndex: 0
         };
         this.changeFigure = this.changeFigure.bind(this);
+    }
+
+    componentDidMount() {
+        fetch("http://corra.duckdns.org:26015/imageInfo.json")
+            .then(res => res.json())
+            .then((res) => {
+                this.setState({
+                    figures: res
+                })
+            })
     }
 
     changeFigure(increment) {
@@ -41,7 +45,7 @@ class App extends React.Component {
             <div className="App">
                 <button className="buttons" onClick={() => this.changeFigure(false)}>Previous</button>
                 <div className="Figure">
-                    <Figure imgUrl={this.state.figureUrls[this.state.currentFigureIndex]}/>
+                    <Figure imgUrl={this.state.figures["in"][0]["url"]}/>
                     <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
                 </div>
                 <button className="buttons" onClick={() => this.changeFigure(true)}>Next</button>
