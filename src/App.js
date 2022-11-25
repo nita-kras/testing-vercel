@@ -40,8 +40,8 @@ class App extends React.Component {
     }
 
     getImgURL(index) {
-        if (this.state.figures == null) {
-            return null;
+        if (this.state.figures === []) {
+            return "https://i.imgur.com/llF5iyg.gif";
         } else {
             return this.state.figures[index]["url"];
         }
