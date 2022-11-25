@@ -41,6 +41,18 @@ class App extends React.Component {
         }
     }
 
+    getFigureInfo(index) {
+        if (!this.state.figuresLoaded) {
+            return {name: "",
+                    doi: "",
+                    year: ""};
+        } else {
+            return {name: this.state.figures["in"][index]["name"],
+                    doi: this.state.figures["in"][index]["doi"],
+                    year: this.state.figures["in"][index]["year"]};
+        }
+    }
+
     getImgURL(index) {
         if (!this.state.figuresLoaded) {
             return "https://i.imgur.com/llF5iyg.gif";
@@ -51,12 +63,16 @@ class App extends React.Component {
 
     render() {
         document.title = "Figure Viewer";
+        let figureInfo = this.getFigureInfo(this.state.currentFigureIndex);
         return (
             <div className="App">
                 <button className="buttons" onClick={() => this.changeFigure(false)}>Previous</button>
                 <div className="Figure">
                     <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)}/>
                     <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
+                    <p>Title: {figureInfo.name}</p>
+                    <p>Year: {figureInfo.year}</p>
+                    <p>DOI: {figureInfo.doi}</p>
                 </div>
                 <button className="buttons" onClick={() => this.changeFigure(true)}>Next</button>
             </div>
