@@ -27,14 +27,14 @@ class App extends React.Component {
 
     changeFigure(increment) {
         if (increment === true) {
-            if (this.state.currentFigureIndex === 4) {
+            if (this.state.currentFigureIndex === 29688) {
                 this.setState({currentFigureIndex: 0});
             } else {
                 this.setState({currentFigureIndex: this.state.currentFigureIndex + 1});
             }
         } else {
             if (this.state.currentFigureIndex === 0) {
-                this.setState({currentFigureIndex: 4});
+                this.setState({currentFigureIndex: 29688});
             } else {
                 this.setState({currentFigureIndex: this.state.currentFigureIndex - 1});
             }
