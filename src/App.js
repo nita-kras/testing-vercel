@@ -41,11 +41,11 @@ class App extends React.Component {
 
     render() {
         document.title = "Figure Viewer";
+        console.log(this.state.figures["in"])
         return (
             <div className="App">
                 <button className="buttons" onClick={() => this.changeFigure(false)}>Previous</button>
                 <div className="Figure">
-                    <Figure imgUrl={this.state.figures["in"][0]["url"]}/>
                     <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
                 </div>
                 <button className="buttons" onClick={() => this.changeFigure(true)}>Next</button>
