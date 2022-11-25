@@ -14,7 +14,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://corra.duckdns.org:26015/imageInfo.json")
+        fetch("https://files.catbox.moe/7dvpgw.json")
             .then(res => res.json())
             .then((res) => {
                 this.setState({
