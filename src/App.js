@@ -69,10 +69,12 @@ class App extends React.Component {
                 <button className="buttons" onClick={() => this.changeFigure(false)}>Previous</button>
                 <div className="Figure">
                     <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)}/>
-                    <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
-                    <p>Title: {figureInfo.name}</p>
-                    <p>Year: {figureInfo.year}</p>
-                    <p>DOI: {figureInfo.doi}</p>
+                    <div className="metadata">
+                        <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
+                        <p>Title: {figureInfo.name}</p>
+                        <p>Year: {figureInfo.year}</p>
+                        <p>DOI: {figureInfo.doi}</p>
+                    </div>
                 </div>
                 <button className="buttons" onClick={() => this.changeFigure(true)}>Next</button>
             </div>
