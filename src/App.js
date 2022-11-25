@@ -39,13 +39,21 @@ class App extends React.Component {
         }
     }
 
+    getImgURL(index) {
+        if (this.state.figures == null) {
+            return null;
+        } else {
+            return this.state.figures[index]["url"];
+        }
+    }
+
     render() {
         document.title = "Figure Viewer";
         return (
             <div className="App">
                 <button className="buttons" onClick={() => this.changeFigure(false)}>Previous</button>
                 <div className="Figure">
-                    <Figure imgUrl={this.state.figures[0]["url"]}/>
+                    <Figure imgUrl={this.getImgURL(this.state.currentFigureIndex)}/>
                     <p id={"figure-label"}>Figure {this.state.currentFigureIndex + 1}</p>
                 </div>
                 <button className="buttons" onClick={() => this.changeFigure(true)}>Next</button>
