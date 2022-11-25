@@ -8,7 +8,8 @@ class App extends React.Component {
         super(props);
         this.state = {
             figures : [],
-            currentFigureIndex: 0
+            currentFigureIndex: 0,
+            figuresLoaded: false
         };
         this.changeFigure = this.changeFigure.bind(this);
     }
@@ -18,7 +19,8 @@ class App extends React.Component {
             .then(res => res.json())
             .then((res) => {
                 this.setState({
-                    figures: res["in"]
+                    figures: res,
+                    figuresLoaded: true
                 })
             })
     }
@@ -40,16 +42,15 @@ class App extends React.Component {
     }
 
     getImgURL(index) {
-        if (this.state.figures === []) {
+        if (!this.state.figuresLoaded) {
             return "https://i.imgur.com/llF5iyg.gif";
         } else {
-            return this.state.figures[index]["url"];
+            return this.state.figures["in"][index]["url"];
         }
     }
 
     render() {
         document.title = "Figure Viewer";
-        console.log(this.state.figures);
         return (
             <div className="App">
                 <button className="buttons" onClick={() => this.changeFigure(false)}>Previous</button>
