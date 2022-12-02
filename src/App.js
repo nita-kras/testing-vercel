@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Figure from "./Figure";
-
+import BasicCard from './Card';
 
 
 class App extends React.Component {
@@ -80,6 +80,7 @@ class App extends React.Component {
                 <button className="buttons" onClick={() => this.changeFigure(true)}>Next</button>
 				<div className="questions">
 				</div>
+                <Card className="q1"></Card>
             </div>
         );
     }
